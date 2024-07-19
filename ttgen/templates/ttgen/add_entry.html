@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Timetable Entry</title>
+</head>
+<body>
+    <h1>Add Timetable Entry</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if form.non_field_errors %}
+            <ul>
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <button type="submit">Add Entry</button>
+    </form>
+    <a href="{% url 'index' %}">Back to Timetable</a>
+</body>
+</html>
